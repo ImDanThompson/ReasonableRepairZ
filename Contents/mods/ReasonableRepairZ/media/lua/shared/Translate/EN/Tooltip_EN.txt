@@ -1,0 +1,5 @@
+Tooltip_EN = {
+	Tooltip_BondX = "Make your vehicle new again with BondX, the leading automotive body filler in Louisville!",
+	Tooltip_GlassX = "Repair your windshield and windows with GlassX and restore clarity to your life!",
+	Tooltip_TireX = "Patch all types of tires with TireX, featuring GooGum adhesive!",
+}

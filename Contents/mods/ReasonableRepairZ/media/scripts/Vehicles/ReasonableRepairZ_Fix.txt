@@ -1,0 +1,72 @@
+module ReasonableRepairZ
+{
+	imports
+	{
+		Base
+	}
+	
+	item GlassX
+    	{
+        	DisplayCategory = VehicleMaintenance,
+        	Weight	=	1,
+        	Type	=	Drainable,
+		UseDelta	=	1,
+        	UseWhileEquipped	=	FALSE,
+        	DisplayName	=	Glass-X,
+        	Icon	=	GlassX,
+        	Tooltip = Tooltip_GlassX,
+		SurvivalGear = TRUE,
+        	WorldStaticModel = GlassX,
+    	}
+
+	item BondX
+    	{
+        	DisplayCategory = VehicleMaintenance,
+       		Weight	=	10,
+        	Type	=	Drainable,
+		UseDelta	=	0.2,
+        	UseWhileEquipped	=	FALSE,
+        	DisplayName	=	Bond-X,
+        	Icon	=	BondX,
+        	Tooltip = Tooltip_BondX,
+		SurvivalGear = TRUE,
+        	WorldStaticModel = BondX,
+    	}
+	
+	item TireX
+   	{
+        	DisplayCategory = VehicleMaintenance,
+        	Weight	=	2,
+        	Type	=	Drainable,
+		UseDelta	=	0.25,
+        	UseWhileEquipped	=	FALSE,
+        	DisplayName	=	Tire-X,
+        	Icon	=	TireX,
+        	Tooltip = Tooltip_TireX,
+		SurvivalGear = TRUE,
+       		WorldStaticModel = TireX,
+   	}
+	
+    fixing Fix Window or Windshield
+	{
+	   Require : Windshield1;Windshield2;Windshield3;FrontWindow1;FrontWindow2;FrontWindow3;RearWindshield1;RearWindshield2;RearWindshield3;RearWindow1;RearWindow2;RearWindow3,
+	   ConditionModifier : 1,
+           Fixer : GlassX=1;Mechanics=2,
+	}
+
+    fixing Fix Body Car Part
+	{
+	   Require : FrontCarDoor1;RearCarDoor1;RearCarDoorDouble1;FrontCarDoor2;RearCarDoor2;RearCarDoorDouble2;RearCarDoor3;RearCarDoorDouble3;EngineDoor1;EngineDoor2;EngineDoor3;TrunkDoor1;TrunkDoor2;TrunkDoor3,
+	   ConditionModifier : 1,
+
+           Fixer : BondX=1;Mechanics=3,
+	}
+
+    fixing Fix Tire
+	{
+	   Require : OldTire1;NormalTire1;ModernTire1;OldTire2;NormalTire2;ModernTire3;NormalTire3;OldTire3,
+	   ConditionModifier : 1,
+
+       	   Fixer : TireX=1;Mechanics=1,
+	}
+}
